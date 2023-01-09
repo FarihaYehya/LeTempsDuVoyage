@@ -14,17 +14,22 @@ public class Restaurants {
     private int id;
     private String nom;
     private String type;
-    private int budget;
+    private int prixLePlusBas;
+    private int prixLePlusHaut;
+    private String adresse;
 
     //constructeurs
+
 
     public Restaurants() {
     }
 
-    public Restaurants(String nom, String type, int budget) {
+    public Restaurants(String nom, String type, int prixLePlusBas, int prixLePlusHaut, String adresse) {
         this.nom = nom;
         this.type = type;
-        this.budget = budget;
+        this.prixLePlusBas = prixLePlusBas;
+        this.prixLePlusHaut = prixLePlusHaut;
+        this.adresse = adresse;
     }
 //Getter/setter
 
@@ -52,15 +57,31 @@ public class Restaurants {
         this.type = type;
     }
 
-    public int getBudget() {
-        return budget;
+    public int getPrixLePlusBas() {
+        return prixLePlusBas;
     }
 
-    public void setBudget(int budget) {
-        this.budget = budget;
+    public void setPrixLePlusBas(int prixLePlusBas) {
+        this.prixLePlusBas = prixLePlusBas;
     }
 
-    //ToString
+    public int getPrixLePlusHaut() {
+        return prixLePlusHaut;
+    }
+
+    public void setPrixLePlusHaut(int prixLePlusHaut) {
+        this.prixLePlusHaut = prixLePlusHaut;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+//ToString
+
 
     @Override
     public String toString() {
@@ -68,7 +89,9 @@ public class Restaurants {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", type='" + type + '\'' +
-                ", budget=" + budget +
+                ", prixLePlusBas=" + prixLePlusBas +
+                ", prixLePlusHaut=" + prixLePlusHaut +
+                ", adresse='" + adresse + '\'' +
                 '}';
     }
 }
