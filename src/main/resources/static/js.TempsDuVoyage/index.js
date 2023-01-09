@@ -1,5 +1,5 @@
 
-//Afficher une ville//
+//Afficher une ville //
 
 $.ajax({
   type: "GET",
