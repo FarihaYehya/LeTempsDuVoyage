@@ -1,4 +1,7 @@
 package com.letempsduvoyage.LeTempsDuVoyage.repositories;
 
-public interface VillesRepositoryInterface {
+import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VillesRepositoryInterface extends JpaRepository<Villes, Integer> {
 }
