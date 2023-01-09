@@ -15,6 +15,38 @@ public class Transports {
     private String typeTransports;
 
     //constructeurs
-    //Getter/setter
+
+    public Transports() {
+    }
+
+    public Transports(String typeTransports) {
+        this.typeTransports = typeTransports;
+    }
+//Getter/setter
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTypeTransports() {
+        return typeTransports;
+    }
+
+    public void setTypeTransports(String typeTransports) {
+        this.typeTransports = typeTransports;
+    }
+
     //ToString
+
+    @Override
+    public String toString() {
+        return "Transports{" +
+                "id=" + id +
+                ", typeTransports='" + typeTransports + '\'' +
+                '}';
+    }
 }

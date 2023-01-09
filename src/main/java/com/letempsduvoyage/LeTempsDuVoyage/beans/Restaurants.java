@@ -17,6 +17,58 @@ public class Restaurants {
     private int budget;
 
     //constructeurs
-    //Getter/setter
+
+    public Restaurants() {
+    }
+
+    public Restaurants(String nom, String type, int budget) {
+        this.nom = nom;
+        this.type = type;
+        this.budget = budget;
+    }
+//Getter/setter
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
+    }
+
     //ToString
+
+    @Override
+    public String toString() {
+        return "Restaurants{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", type='" + type + '\'' +
+                ", budget=" + budget +
+                '}';
+    }
 }
