@@ -10,8 +10,10 @@ public class Continents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributs
+
     private int id;
     private String nom;
+
 
 
     //constructeurs

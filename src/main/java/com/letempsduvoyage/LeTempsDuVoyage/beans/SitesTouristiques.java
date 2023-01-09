@@ -10,6 +10,7 @@ public class SitesTouristiques {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributs
+
     private int id;
     private String nom;
     private int prix;

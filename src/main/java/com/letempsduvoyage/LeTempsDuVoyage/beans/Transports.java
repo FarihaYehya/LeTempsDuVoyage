@@ -10,6 +10,7 @@ public class Transports {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributs
+
     private int id;
     private String typeTransports;
 

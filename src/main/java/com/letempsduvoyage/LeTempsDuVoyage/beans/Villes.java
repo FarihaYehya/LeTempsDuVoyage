@@ -11,6 +11,7 @@ public class Villes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     //Attributs
+
     private int id;
     private String nom;
 
