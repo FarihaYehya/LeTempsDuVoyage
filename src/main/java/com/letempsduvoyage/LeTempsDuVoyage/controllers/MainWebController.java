@@ -59,6 +59,7 @@ public class MainWebController {
         Continents continent3 = new Continents("Asie");
         Continents continent4 = new Continents("Europe");
 
+
         continentsRepositoryInterface.save(continent1);
         continentsRepositoryInterface.save(continent2);
         continentsRepositoryInterface.save(continent3);
