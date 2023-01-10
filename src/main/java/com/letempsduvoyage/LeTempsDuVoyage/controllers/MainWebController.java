@@ -19,6 +19,14 @@ public class MainWebController {
 
     @Autowired
     private VillesRepositoryInterface villesRepositoryInterface;
+    @PostMapping("/recuperationVille")
+    public String recuperationVille(@RequestBody Villes ville) {
+        System.out.println(ville);
+        villesRepositoryInterface.save(ville);
+        return "OK";
+    }
+
+
 
     @GetMapping("/ajoutVilleEnBase")
     public String ajoutVilleEnBase() {
@@ -107,5 +115,20 @@ public class MainWebController {
         sitesTouristiquesRepositoryInterface.save(tourisme);
         return "OK";
     }
+
+
+    //........Mettre des Restaurants dans les Villes.....//
+
+    @PostMapping("/recuperationMultiRestaurants")
+    public String recuperationMultiRestaurants(@RequestBody Restaurants restaurant) {
+        System.out.println(restaurant);
+        Villes ville= villesRepositoryInterface.findByNom(restaurant.getNomVille());
+        ville.ajouterRestaurants(restaurant);
+        System.out.println(ville);
+        villesRepositoryInterface.save(ville);
+        return "OK";
+    }
+
+
 
 }

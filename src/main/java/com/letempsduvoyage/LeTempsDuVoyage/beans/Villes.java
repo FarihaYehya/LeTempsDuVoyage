@@ -15,6 +15,13 @@ public class Villes {
     private int id;
     private String nom;
 
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Restaurants> restaurants = new ArrayList<>();
+
+    public void ajouterRestaurants (Restaurants resto){
+        restaurants.add(resto);
+    }
+
 
 
     //constructeurs
@@ -26,6 +33,10 @@ public class Villes {
         this.nom = nom;
     }
 
+    public Villes(String nom, List<Restaurants> restaurants) {
+        this.nom = nom;
+        this.restaurants = restaurants;
+    }
 
     //Getter/setter
 
@@ -45,13 +56,22 @@ public class Villes {
         this.nom = nom;
     }
 
-    //ToString
+    public List<Restaurants> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurants> restaurants) {
+        this.restaurants = restaurants;
+    }
+//ToString
+
 
     @Override
     public String toString() {
         return "Villes{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", restaurants=" + restaurants +
                 '}';
     }
 }
