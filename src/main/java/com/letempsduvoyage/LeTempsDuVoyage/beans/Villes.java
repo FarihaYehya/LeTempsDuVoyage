@@ -1,9 +1,9 @@
 package com.letempsduvoyage.LeTempsDuVoyage.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Villes {
@@ -14,6 +14,7 @@ public class Villes {
 
     private int id;
     private String nom;
+
 
 
     //constructeurs

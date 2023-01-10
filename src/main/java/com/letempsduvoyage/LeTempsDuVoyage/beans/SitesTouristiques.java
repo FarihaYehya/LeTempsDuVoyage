@@ -1,9 +1,6 @@
 package com.letempsduvoyage.LeTempsDuVoyage.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class SitesTouristiques {
@@ -13,18 +10,22 @@ public class SitesTouristiques {
 
     private int id;
     private String nom;
+    private String typeTourisme;
     private int prix;
+
+
 
     //constructeurs
 
     public SitesTouristiques() {
     }
 
-    public SitesTouristiques(String nom, int prix) {
+    public SitesTouristiques(String nom, String typeTourisme, int prix) {
         this.nom = nom;
+        this.typeTourisme = typeTourisme;
         this.prix = prix;
     }
-    //Getter/setter
+//Getter/setter
 
     public int getId() {
         return id;
@@ -42,6 +43,14 @@ public class SitesTouristiques {
         this.nom = nom;
     }
 
+    public String getTypeTourisme() {
+        return typeTourisme;
+    }
+
+    public void setTypeTourisme(String typeTourisme) {
+        this.typeTourisme = typeTourisme;
+    }
+
     public int getPrix() {
         return prix;
     }
@@ -50,13 +59,16 @@ public class SitesTouristiques {
         this.prix = prix;
     }
 
-    //ToString
+
+//ToString
+
 
     @Override
     public String toString() {
         return "SitesTouristiques{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", typeTourisme='" + typeTourisme + '\'' +
                 ", prix=" + prix +
                 '}';
     }

@@ -13,6 +13,45 @@ $.ajax({
     $("#Istrie").html(resultat[3].nom.replace(/[""]+/g, ''));
   }
   });
+// Aficher un Continent
+  $.ajax({
+    type: "GET",
+    headers: { "Content-Type": "application/json" },
+    url: "http://localhost:8080/API/getAllContinents",
+    success: function (resultat) {
+      alert("L'API m'a retourné : "+resultat);
+      $("#Afrique").html(resultat[0].nom.replace(/[""]+/g, ''));
+    }
+    });
+
+      $.ajax({
+        type: "GET",
+        headers: { "Content-Type": "application/json" },
+        url: "http://localhost:8080/API/getAllContinents",
+        success: function (resultat) {
+          alert("L'API m'a retourné : "+resultat);
+          $("#Amérique").html(resultat[1].nom.replace(/[""]+/g, ''));
+        }
+        });
+         $.ajax({
+            type: "GET",
+            headers: { "Content-Type": "application/json" },
+            url: "http://localhost:8080/API/getAllContinents",
+            success: function (resultat) {
+              alert("L'API m'a retourné : "+resultat);
+              $("#Asie").html(resultat[2].nom.replace(/[""]+/g, ''));
+            }
+            });
+
+              $.ajax({
+                type: "GET",
+                headers: { "Content-Type": "application/json" },
+                url: "http://localhost:8080/API/getAllContinents",
+                success: function (resultat) {
+                  alert("L'API m'a retourné : "+resultat);
+                  $("#Europe").html(resultat[3].nom.replace(/[""]+/g, ''));
+                }
+                });
 
   //Afficher un restaurant//
 
@@ -26,3 +65,4 @@ $.ajax({
     $("#RestaurantCopacabana").html(resultat[1].nom.replace(/[""]+/g, ''));
   }
   });
+

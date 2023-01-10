@@ -1,13 +1,15 @@
 package com.letempsduvoyage.LeTempsDuVoyage.controllers;
 
+import com.letempsduvoyage.LeTempsDuVoyage.beans.Continents;
 import com.letempsduvoyage.LeTempsDuVoyage.beans.Restaurants;
+import com.letempsduvoyage.LeTempsDuVoyage.beans.SitesTouristiques;
 import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
+import com.letempsduvoyage.LeTempsDuVoyage.repositories.ContinentsRepositoryInterface;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.RestaurantsRepositoryInterface;
+import com.letempsduvoyage.LeTempsDuVoyage.repositories.SitesTouristiquesRepositoryInterface;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.VillesRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +41,31 @@ public class MainWebController {
         List<Villes> villes = villesRepositoryInterface.findAll();
         return villes;
     }
+    @Autowired
+    private ContinentsRepositoryInterface continentsRepositoryInterface;
+    @GetMapping("/ajoutContinentsEnBase")
+    public String ajoutContinentsEnBase() {
+
+        Continents continent1 = new Continents("Afrique");
+        Continents continent2 = new Continents("Amérique");
+        Continents continent3 = new Continents("Asie");
+        Continents continent4 = new Continents("Europe");
+
+        continentsRepositoryInterface.save(continent1);
+        continentsRepositoryInterface.save(continent2);
+        continentsRepositoryInterface.save(continent3);
+        continentsRepositoryInterface.save(continent4);
+
+        return ("OK");
+    }
+
+    @GetMapping("/getAllContinents")
+    public List<Continents> getAllContinents() {
+        List<Continents> continents = continentsRepositoryInterface.findAll();
+        return continents;
+    }
+
+
 
 
     //..........Restaurants.........//
@@ -72,4 +99,13 @@ public class MainWebController {
         List<Restaurants> restos = restaurantsRepositoryInterface.findAll();
         return restos;
     }
+@Autowired
+    SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
+    @PostMapping("/recuperationSitesTouristiques")
+    public String recuperationSitesTouristiques(@RequestBody SitesTouristiques tourisme) {
+        System.out.println(tourisme);
+        sitesTouristiquesRepositoryInterface.save(tourisme);
+        return "OK";
+    }
+
 }
