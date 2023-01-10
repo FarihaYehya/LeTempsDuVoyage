@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VillesRepositoryInterface extends JpaRepository<Villes, Integer> {
 
+    Villes findById(int id);
+
+    Villes findByNom(String nom);
 }

@@ -18,6 +18,8 @@ public class Restaurants {
     private int prixLePlusHaut;
     private String adresse;
 
+    private String nomVille;
+
     //constructeurs
 
 
@@ -75,6 +77,14 @@ public class Restaurants {
 
     public String getAdresse() {
         return adresse;
+    }
+
+    public String getNomVille() {
+        return nomVille;
+    }
+
+    public void setNomVille(String nomVille) {
+        this.nomVille = nomVille;
     }
 
     public void setAdresse(String adresse) {

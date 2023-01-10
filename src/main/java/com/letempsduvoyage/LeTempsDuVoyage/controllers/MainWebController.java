@@ -5,9 +5,7 @@ import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.RestaurantsRepositoryInterface;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.VillesRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,14 @@ public class MainWebController {
 
     @Autowired
     private VillesRepositoryInterface villesRepositoryInterface;
+    @PostMapping("/recuperationVille")
+    public String recuperationVille(@RequestBody Villes ville) {
+        System.out.println(ville);
+        villesRepositoryInterface.save(ville);
+        return "OK";
+    }
+
+
 
     @GetMapping("/ajoutVilleEnBase")
     public String ajoutVilleEnBase() {
@@ -72,4 +78,19 @@ public class MainWebController {
         List<Restaurants> restos = restaurantsRepositoryInterface.findAll();
         return restos;
     }
+
+    //........Mettre des Restaurants dans les Villes.....//
+
+    @PostMapping("/recuperationMultiRestaurants")
+    public String recuperationMultiRestaurants(@RequestBody Restaurants restaurant) {
+        System.out.println(restaurant);
+        Villes ville= villesRepositoryInterface.findByNom(restaurant.getNomVille());
+        ville.ajouterRestaurants(restaurant);
+        System.out.println(ville);
+        villesRepositoryInterface.save(ville);
+        return "OK";
+    }
+
+
+
 }
