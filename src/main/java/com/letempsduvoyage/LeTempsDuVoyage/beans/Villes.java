@@ -12,8 +12,9 @@ public class Villes {
 
     //Attributs
 
-    private int id;
+    private int idVilles;
     private String nom;
+    private String nomContinents;
 
     //Ajouter un restaurant à ville//
     @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -22,7 +23,13 @@ public class Villes {
     public void ajouterRestaurants (Restaurants resto){
         restaurants.add(resto);
     }
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Commentaires> commentaires = new ArrayList<>();
 
+    //Ajouter commentaire pour Villes//
+    public void ajouterCommentaires (Commentaires comment){
+        commentaires.add(comment);
+    }
     //Ajouter un transport à ville//
 
     @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -58,12 +65,13 @@ public class Villes {
 
     //Getter/setter
 
-    public int getId() {
-        return id;
+
+    public int getIdVilles() {
+        return idVilles;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVilles(int idVilles) {
+        this.idVilles = idVilles;
     }
 
     public String getNom() {
@@ -80,6 +88,14 @@ public class Villes {
 
     public void setRestaurants(List<Restaurants> restaurants) {
         this.restaurants = restaurants;
+    }
+
+    public String getNomContinents() {
+        return nomContinents;
+    }
+
+    public void setNomContinents(String nomContinents) {
+        this.nomContinents = nomContinents;
     }
 
     public List<Transports> getTransport() {
@@ -104,7 +120,7 @@ public class Villes {
     @Override
     public String toString() {
         return "Villes{" +
-                "id=" + id +
+                "id=" + idVilles +
                 ", nom='" + nom + '\'' +
                 ", restaurants=" + restaurants +
                 '}';

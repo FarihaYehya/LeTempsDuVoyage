@@ -18,13 +18,13 @@ public class Restaurants {
     private int prixLePlusHaut;
     private String adresse;
 
-    private String nomVille;
+    private String nomVilles;
 
     //Ajouter un commentaire à restaurant//
-    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Commentaires> commentaires = new ArrayList<>();
 
-    public void ajouterCommentairesRestaurants (Commentaires comment){
+    public void ajouterCommentairesRestaurants(Commentaires comment) {
         commentaires.add(comment);
     }
 
@@ -93,34 +93,35 @@ public class Restaurants {
         this.adresse = adresse;
     }
 
-    public String getNomVille() {
-        return nomVille;
-    }
-
-    public void setNomVille(String nomVille) {
-        this.nomVille = nomVille;
-    }
-
-    public List<Commentaires> getCommentaires() {
-        return commentaires;
-    }
-
-    public void setCommentaires(List<Commentaires> commentaires) {
-        this.commentaires = commentaires;
-    }
-
-    //ToString
+    public String getNomVilles() {
+        return nomVilles;
 
 
-    @Override
-    public String toString() {
-        return "Restaurants{" +
-                "id=" + idRestaurants +
-                ", nom='" + nom + '\'' +
-                ", type='" + type + '\'' +
-                ", prixLePlusBas=" + prixLePlusBas +
-                ", prixLePlusHaut=" + prixLePlusHaut +
-                ", adresse='" + adresse + '\'' +
-                '}';
+        public void setNomVilles (String nomVilles){
+            this.nomVilles = nomVilles;
+        }
+
+        public List<Commentaires> getCommentaires () {
+            return commentaires;
+        }
+
+        public void setCommentaires (List < Commentaires > commentaires) {
+            this.commentaires = commentaires;
+        }
+
+        //ToString
+
+
+        @Override
+        public String toString () {
+            return "Restaurants{" +
+                    "id=" + idRestaurants +
+                    ", nom='" + nom + '\'' +
+                    ", type='" + type + '\'' +
+                    ", prixLePlusBas=" + prixLePlusBas +
+                    ", prixLePlusHaut=" + prixLePlusHaut +
+                    ", adresse='" + adresse + '\'' +
+                    '}';
+        }
     }
 }
