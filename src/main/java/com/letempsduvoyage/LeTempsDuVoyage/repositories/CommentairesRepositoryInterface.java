@@ -1,4 +1,9 @@
 package com.letempsduvoyage.LeTempsDuVoyage.repositories;
 
-public interface CommentairesRepositoryInterface {
+import com.letempsduvoyage.LeTempsDuVoyage.beans.Commentaires;
+import com.letempsduvoyage.LeTempsDuVoyage.beans.Continents;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CommentairesRepositoryInterface extends JpaRepository<Commentaires, Integer> {
+
 }

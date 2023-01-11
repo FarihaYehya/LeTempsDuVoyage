@@ -1,9 +1,6 @@
 package com.letempsduvoyage.LeTempsDuVoyage.controllers;
 
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Continents;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Restaurants;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.SitesTouristiques;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
+import com.letempsduvoyage.LeTempsDuVoyage.beans.*;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +21,8 @@ public class MainWebController {
    private SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
     @Autowired
     private TransportsRepositoryInterface transportsRepositoryInterface;
+    @Autowired
+    private CommentairesRepositoryInterface commentairesRepositoryInterface;
 
 
 
@@ -146,6 +145,16 @@ public class MainWebController {
         continents.ajouterVilles(villes);
         System.out.println(villes);
         continentsRepositoryInterface.save(continents);
+        return "OK";
+    }
+
+    @PostMapping("/recuperationMultiCommentairesVilles")
+    public String recuperationMultiCommentairesVilles(@RequestBody Commentaires commentaires) {
+        System.out.println(commentaires);
+        Villes villes= villesRepositoryInterface.findByNom(commentaires.getNomVilles());
+        villes.ajouterCommentaires(commentaires);
+        System.out.println(villes);
+        commentairesRepositoryInterface.save(commentaires);
         return "OK";
     }
 

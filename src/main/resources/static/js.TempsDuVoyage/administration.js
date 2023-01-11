@@ -1,6 +1,7 @@
 
 //Créer une nouvelle ville //
-/*$("#boutonEnvoyer").click(() =>{
+/*
+$("#boutonEnvoyerVille").click(() =>{
 
   let valeurs = { nom: $("#inputNom").val()};
 
@@ -49,6 +50,24 @@ $.ajax({
  });
 
 
+// Ajout Villes dans Commentaires
+$("#boutonajoutCommentairesAVilles").click(() =>{
+
+  let valeurs = { commentaires: $("#inputCommentaires").val(), nomVilles: $("#inputVillesDansCommentaires").val()};
+console.log(valeurs);
+$.ajax({
+  type: "POST",
+  headers: { "Content-Type": "application/json" },
+  url: "http://localhost:8080/API/recuperationMultiCommentairesVilles",
+  data: JSON.stringify(valeurs),
+  success: function (resultat) {
+    console.log("L'API m'a retourné : " + resultat);
+     }
+  });
+ });
+
+
+
 
 //Afficher une ville//
 $.ajax({
@@ -78,7 +97,7 @@ $.ajax({
   }
   });
 
-/*  //Afficher un restaurant//
+  //Afficher un restaurant//
 
 $.ajax({
   type: "GET",
@@ -89,4 +108,4 @@ $.ajax({
     $("#RestaurantKenya").html(resultat[0].nom.replace(/[""]+/g, ''));
     $("#RestaurantCopacabana").html(resultat[1].nom.replace(/[""]+/g, ''));
   }
-  });*/
+  });

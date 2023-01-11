@@ -12,12 +12,13 @@ public class Commentaires {
 
     //attributs
     private int id;
-    private String commentaires;
-    private int idPersonne;
-    private int idVilles;
-    private int idtransports;
-    private int idsitesTouristiques;
-    private int idrestaurants;
+    private String Commentaires;
+    private String nomPersonne;
+
+    private String nomTransports;
+    private String nomSitesTouristiques;
+    private String nomRestaurants;
+    private String nomVilles;
 
 
 
@@ -26,17 +27,17 @@ public class Commentaires {
     public Commentaires() {
     }
 
-    public Commentaires(String commentaires, int idPersonne, int idVilles, int idtransports, int idsitesTouristiques, int idrestaurants) {
-        this.commentaires = commentaires;
-        this.idPersonne = idPersonne;
-        this.idVilles = idVilles;
-        this.idtransports = idtransports;
-        this.idsitesTouristiques = idsitesTouristiques;
-        this.idrestaurants = idrestaurants;
+    public Commentaires(String Commentaires, String nomPersonne, String nomTransports, String nomSitesTouristiques, String nomRestaurants, String nomVilles) {
+        this.Commentaires = Commentaires;
+        this.nomPersonne = nomPersonne;
+        this.nomTransports = nomTransports;
+        this.nomSitesTouristiques = nomSitesTouristiques;
+        this.nomRestaurants = nomRestaurants;
+        this.nomVilles = nomVilles;
     }
 
-
     //Getter/setter
+
 
     public int getId() {
         return id;
@@ -47,65 +48,68 @@ public class Commentaires {
     }
 
     public String getCommentaires() {
-        return commentaires;
+        return Commentaires;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaires(String Commentaires) {
+        this.Commentaires = Commentaires;
     }
 
-    public int getIdPersonne() {
-        return idPersonne;
+    public String getNomPersonne() {
+        return nomPersonne;
     }
 
-    public void setIdPersonne(int idPersonne) {
-        this.idPersonne = idPersonne;
+    public void setNomPersonne(String nomPersonne) {
+        this.nomPersonne = nomPersonne;
     }
 
-    public int getIdVilles() {
-        return idVilles;
+    public String getNomTransports() {
+        return nomTransports;
     }
 
-    public void setIdVilles(int idVilles) {
-        this.idVilles = idVilles;
+    public void setNomTransports(String nomTransports) {
+        this.nomTransports = nomTransports;
     }
 
-    public int getIdtransports() {
-        return idtransports;
+    public String getNomSitesTouristiques() {
+        return nomSitesTouristiques;
     }
 
-    public void setIdtransports(int idtransports) {
-        this.idtransports = idtransports;
+    public void setNomSitesTouristiques(String nomSitesTouristiques) {
+        this.nomSitesTouristiques = nomSitesTouristiques;
     }
 
-    public int getIdsitesTouristiques() {
-        return idsitesTouristiques;
+    public String getNomRestaurants() {
+        return nomRestaurants;
     }
 
-    public void setIdsitesTouristiques(int idsitesTouristiques) {
-        this.idsitesTouristiques = idsitesTouristiques;
+    public void setNomRestaurants(String nomRestaurants) {
+        this.nomRestaurants = nomRestaurants;
     }
 
-    public int getIdrestaurants() {
-        return idrestaurants;
+    public String getNomVilles() {
+        return nomVilles;
     }
 
-    public void setIdrestaurants(int idrestaurants) {
-        this.idrestaurants = idrestaurants;
+    public void setNomVilles(String nomVilles) {
+        this.nomVilles = nomVilles;
     }
 
-    //ToString
+    // ToString
 
     @Override
     public String toString() {
         return "Commentaires{" +
                 "id=" + id +
-                ", commentaires='" + commentaires + '\'' +
-                ", idPersonne=" + idPersonne +
-                ", idVilles=" + idVilles +
-                ", idtransports=" + idtransports +
-                ", idsitesTouristiques=" + idsitesTouristiques +
-                ", idrestaurants=" + idrestaurants +
+                ", commentaires='" + Commentaires + '\'' +
+                ", nomPersonne='" + nomPersonne + '\'' +
+                ", nomTransports='" + nomTransports + '\'' +
+                ", nomSitesTouristiques='" + nomSitesTouristiques + '\'' +
+                ", nomRestaurants='" + nomRestaurants + '\'' +
+                ", nomVilles='" + nomVilles + '\'' +
                 '}';
+    }
+
+    public void add(Commentaires commentaires) {
     }
 }

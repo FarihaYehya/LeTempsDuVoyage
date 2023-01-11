@@ -22,7 +22,12 @@ public class Villes {
     public void ajouterRestaurants (Restaurants resto){
         restaurants.add(resto);
     }
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Commentaires> commentaires = new ArrayList<>();
 
+    public void ajouterCommentaires (Commentaires comment){
+        commentaires.add(comment);
+    }
 
 
     //constructeurs
