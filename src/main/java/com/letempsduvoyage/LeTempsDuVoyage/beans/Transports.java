@@ -14,6 +14,8 @@ public class Transports {
     private int id;
     private String typeTransports;
 
+    private String nomVille;
+
     //constructeurs
 
     public Transports() {
@@ -38,6 +40,14 @@ public class Transports {
 
     public void setTypeTransports(String typeTransports) {
         this.typeTransports = typeTransports;
+    }
+
+    public String getNomVille() {
+        return nomVille;
+    }
+
+    public void setNomVille(String nomVille) {
+        this.nomVille = nomVille;
     }
 
     //ToString

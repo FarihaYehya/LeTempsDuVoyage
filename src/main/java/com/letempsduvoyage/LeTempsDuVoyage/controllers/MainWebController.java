@@ -1,9 +1,6 @@
 package com.letempsduvoyage.LeTempsDuVoyage.controllers;
 
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Continents;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Restaurants;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.SitesTouristiques;
-import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
+import com.letempsduvoyage.LeTempsDuVoyage.beans.*;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.ContinentsRepositoryInterface;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.RestaurantsRepositoryInterface;
 import com.letempsduvoyage.LeTempsDuVoyage.repositories.SitesTouristiquesRepositoryInterface;
@@ -19,6 +16,16 @@ public class MainWebController {
 
     @Autowired
     private VillesRepositoryInterface villesRepositoryInterface;
+
+    @Autowired
+    private ContinentsRepositoryInterface continentsRepositoryInterface;
+
+    @Autowired
+    private RestaurantsRepositoryInterface restaurantsRepositoryInterface;
+
+    @Autowired
+    SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
+
     @PostMapping("/recuperationVille")
     public String recuperationVille(@RequestBody Villes ville) {
         System.out.println(ville);
@@ -49,8 +56,7 @@ public class MainWebController {
         List<Villes> villes = villesRepositoryInterface.findAll();
         return villes;
     }
-    @Autowired
-    private ContinentsRepositoryInterface continentsRepositoryInterface;
+
     @GetMapping("/ajoutContinentsEnBase")
     public String ajoutContinentsEnBase() {
 
@@ -78,8 +84,7 @@ public class MainWebController {
 
 
     //..........Restaurants.........//
-    @Autowired
-    private RestaurantsRepositoryInterface restaurantsRepositoryInterface;
+
 
     @GetMapping("/ajoutRestaurantsEnBase")
     public String ajoutRestaurantsEnBase() {
@@ -108,8 +113,7 @@ public class MainWebController {
         List<Restaurants> restos = restaurantsRepositoryInterface.findAll();
         return restos;
     }
-@Autowired
-    SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
+
     @PostMapping("/recuperationSitesTouristiques")
     public String recuperationSitesTouristiques(@RequestBody SitesTouristiques tourisme) {
         System.out.println(tourisme);
@@ -131,5 +135,52 @@ public class MainWebController {
     }
 
 
+    //.....Mettre des Transports dans les Villes....//
+
+    @PostMapping("/recuperationMultiTransports")
+    public String recuperationMultiTransports(@RequestBody Transports transport) {
+        System.out.println(transport);
+        Villes ville= villesRepositoryInterface.findByNom(transport.getNomVille());
+        ville.ajouterTransports(transport);
+        System.out.println(ville);
+        villesRepositoryInterface.save(ville);
+        return "OK";
+    }
+
+    //.....Mettre des Sites Touristiques dans les Villes....//
+    @PostMapping("/recuperationMultiSitesTouristiques")
+    public String recuperationMultiSitesTouristiques(@RequestBody SitesTouristiques sitesTouristiques) {
+        System.out.println(sitesTouristiques);
+        Villes villes= villesRepositoryInterface.findByNom(sitesTouristiques.getNomVilles());
+        villes.ajouterSitesTouristiques(sitesTouristiques);
+        System.out.println(villes);
+        villesRepositoryInterface.save(villes);
+        return "OK";
+    }
+
+    //.....Mettre des Commentaires sur les Restaurants....//
+    @PostMapping("/recuperationMultiCommentairesRestaurants")
+    public String recuperationMultiCommentairesRestaurants(@RequestBody Commentaires commentaires) {
+        System.out.println(commentaires);
+        Restaurants restaurants= restaurantsRepositoryInterface.findByNom(commentaires.getNomRestaurants());
+        restaurants.ajouterCommentairesRestaurants(commentaires);
+        System.out.println(restaurants);
+        restaurantsRepositoryInterface.save(restaurants);
+        return "OK";
+    }
+
+    //.....Mettre des Commentaires sur les Sites Touristiques....//
+    @PostMapping("/recuperationMultiCommentairesSitesTouristiques")
+    public String recuperationMultiCommentairesSitesTouristiques(@RequestBody Commentaires commentaires) {
+        System.out.println(commentaires);
+        SitesTouristiques sitesTouristiques= sitesTouristiquesRepositoryInterface.findByNom(commentaires.getNomSitesTouristiques());
+        sitesTouristiques.ajouterCommentairesSitesTouristiques(commentaires);
+        System.out.println(sitesTouristiques);
+        sitesTouristiquesRepositoryInterface.save(sitesTouristiques);
+        return "OK";
+    }
+
 
 }
+
+

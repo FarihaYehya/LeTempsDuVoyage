@@ -1,9 +1,9 @@
 package com.letempsduvoyage.LeTempsDuVoyage.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Restaurants {
@@ -11,7 +11,7 @@ public class Restaurants {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributs
 
-    private int id;
+    private int idRestaurants;
     private String nom;
     private String type;
     private int prixLePlusBas;
@@ -19,6 +19,15 @@ public class Restaurants {
     private String adresse;
 
     private String nomVille;
+
+    //Ajouter un commentaire à restaurant//
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Commentaires> commentaires = new ArrayList<>();
+
+    public void ajouterCommentairesRestaurants (Commentaires comment){
+        commentaires.add(comment);
+    }
+
 
     //constructeurs
 
@@ -35,12 +44,13 @@ public class Restaurants {
     }
 //Getter/setter
 
-    public int getId() {
-        return id;
+
+    public int getIdRestaurants() {
+        return idRestaurants;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdRestaurants(int idRestaurants) {
+        this.idRestaurants = idRestaurants;
     }
 
     public String getNom() {
@@ -79,6 +89,10 @@ public class Restaurants {
         return adresse;
     }
 
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
     public String getNomVille() {
         return nomVille;
     }
@@ -87,16 +101,21 @@ public class Restaurants {
         this.nomVille = nomVille;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public List<Commentaires> getCommentaires() {
+        return commentaires;
     }
-//ToString
+
+    public void setCommentaires(List<Commentaires> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    //ToString
 
 
     @Override
     public String toString() {
         return "Restaurants{" +
-                "id=" + id +
+                "id=" + idRestaurants +
                 ", nom='" + nom + '\'' +
                 ", type='" + type + '\'' +
                 ", prixLePlusBas=" + prixLePlusBas +

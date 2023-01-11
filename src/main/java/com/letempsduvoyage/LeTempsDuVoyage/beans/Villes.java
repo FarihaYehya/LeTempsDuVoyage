@@ -15,6 +15,7 @@ public class Villes {
     private int id;
     private String nom;
 
+    //Ajouter un restaurant à ville//
     @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Restaurants> restaurants = new ArrayList<>();
 
@@ -22,6 +23,23 @@ public class Villes {
         restaurants.add(resto);
     }
 
+    //Ajouter un transport à ville//
+
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Transports> transport = new ArrayList<>();
+
+    public void ajouterTransports (Transports monTransport){
+        transport.add(monTransport);
+    }
+
+    //Ajouter un site touristique à ville//
+
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<SitesTouristiques> sites = new ArrayList<>();
+
+    public void ajouterSitesTouristiques (SitesTouristiques monsite){
+        sites.add(monsite);
+    }
 
 
     //constructeurs
@@ -63,7 +81,24 @@ public class Villes {
     public void setRestaurants(List<Restaurants> restaurants) {
         this.restaurants = restaurants;
     }
-//ToString
+
+    public List<Transports> getTransport() {
+        return transport;
+    }
+
+    public void setTransport(List<Transports> transport) {
+        this.transport = transport;
+    }
+
+    public List<SitesTouristiques> getSites() {
+        return sites;
+    }
+
+    public void setSites(List<SitesTouristiques> sites) {
+        this.sites = sites;
+    }
+
+    //ToString
 
 
     @Override

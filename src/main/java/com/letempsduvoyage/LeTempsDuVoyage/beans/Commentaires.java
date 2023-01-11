@@ -1,9 +1,9 @@
 package com.letempsduvoyage.LeTempsDuVoyage.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Commentaires {
@@ -13,27 +13,29 @@ public class Commentaires {
     //attributs
     private int id;
     private String commentaires;
-    private int idPersonne;
-    private int idVilles;
-    private int idtransports;
-    private int idsitesTouristiques;
-    private int idrestaurants;
+    private String nomPersonnes;
+    private String nomVilles;
+    private String nomTransports;
+    private String nomSitesTouristiques;
+    private String nomRestaurants;
+
+
     //constructeurs
 
     public Commentaires() {
     }
 
-    public Commentaires(String commentaires, int idPersonne, int idVilles, int idtransports, int idsitesTouristiques, int idrestaurants) {
+    public Commentaires(String commentaires, String nomPersonnes, String nomVilles, String nomTransports, String nomSitesTouristiques, String nomRestaurants) {
         this.commentaires = commentaires;
-        this.idPersonne = idPersonne;
-        this.idVilles = idVilles;
-        this.idtransports = idtransports;
-        this.idsitesTouristiques = idsitesTouristiques;
-        this.idrestaurants = idrestaurants;
+        this.nomPersonnes = nomPersonnes;
+        this.nomVilles = nomVilles;
+        this.nomTransports = nomTransports;
+        this.nomSitesTouristiques = nomSitesTouristiques;
+        this.nomRestaurants = nomRestaurants;
     }
 
+    //Getters et Setters//
 
-    //Getter/setter
 
     public int getId() {
         return id;
@@ -51,58 +53,62 @@ public class Commentaires {
         this.commentaires = commentaires;
     }
 
-    public int getIdPersonne() {
-        return idPersonne;
+    public String getNomPersonnes() {
+        return nomPersonnes;
     }
 
-    public void setIdPersonne(int idPersonne) {
-        this.idPersonne = idPersonne;
+    public void setNomPersonnes(String nomPersonnes) {
+        this.nomPersonnes = nomPersonnes;
     }
 
-    public int getIdVilles() {
-        return idVilles;
+    public String getNomVilles() {
+        return nomVilles;
     }
 
-    public void setIdVilles(int idVilles) {
-        this.idVilles = idVilles;
+    public void setNomVilles(String nomVilles) {
+        this.nomVilles = nomVilles;
     }
 
-    public int getIdtransports() {
-        return idtransports;
+    public String getNomTransports() {
+        return nomTransports;
     }
 
-    public void setIdtransports(int idtransports) {
-        this.idtransports = idtransports;
+    public void setNomTransports(String nomTransports) {
+        this.nomTransports = nomTransports;
     }
 
-    public int getIdsitesTouristiques() {
-        return idsitesTouristiques;
+    public String getNomSitesTouristiques() {
+        return nomSitesTouristiques;
     }
 
-    public void setIdsitesTouristiques(int idsitesTouristiques) {
-        this.idsitesTouristiques = idsitesTouristiques;
+    public void setNomSitesTouristiques(String nomSitesTouristiques) {
+        this.nomSitesTouristiques = nomSitesTouristiques;
     }
 
-    public int getIdrestaurants() {
-        return idrestaurants;
+    public String getNomRestaurants() {
+        return nomRestaurants;
     }
 
-    public void setIdrestaurants(int idrestaurants) {
-        this.idrestaurants = idrestaurants;
+    public void setNomRestaurants(String nomRestaurants) {
+        this.nomRestaurants = nomRestaurants;
     }
 
-    //ToString
+
 
     @Override
     public String toString() {
         return "Commentaires{" +
                 "id=" + id +
                 ", commentaires='" + commentaires + '\'' +
-                ", idPersonne=" + idPersonne +
-                ", idVilles=" + idVilles +
-                ", idtransports=" + idtransports +
-                ", idsitesTouristiques=" + idsitesTouristiques +
-                ", idrestaurants=" + idrestaurants +
+                ", nomPersonnes='" + nomPersonnes + '\'' +
+                ", nomVilles='" + nomVilles + '\'' +
+                ", nomTransports='" + nomTransports + '\'' +
+                ", nomSitesTouristiques='" + nomSitesTouristiques + '\'' +
+                ", nomRestaurants='" + nomRestaurants + '\'' +
                 '}';
     }
 }
+
+
+
+
