@@ -95,7 +95,7 @@ public class Restaurants {
 
     public String getNomVilles() {
         return nomVilles;
-
+    }
 
         public void setNomVilles (String nomVilles){
             this.nomVilles = nomVilles;
@@ -124,4 +124,4 @@ public class Restaurants {
                     '}';
         }
     }
-}
+
