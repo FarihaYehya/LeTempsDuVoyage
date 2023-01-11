@@ -4,10 +4,7 @@ import com.letempsduvoyage.LeTempsDuVoyage.beans.Continents;
 import com.letempsduvoyage.LeTempsDuVoyage.beans.Restaurants;
 import com.letempsduvoyage.LeTempsDuVoyage.beans.SitesTouristiques;
 import com.letempsduvoyage.LeTempsDuVoyage.beans.Villes;
-import com.letempsduvoyage.LeTempsDuVoyage.repositories.ContinentsRepositoryInterface;
-import com.letempsduvoyage.LeTempsDuVoyage.repositories.RestaurantsRepositoryInterface;
-import com.letempsduvoyage.LeTempsDuVoyage.repositories.SitesTouristiquesRepositoryInterface;
-import com.letempsduvoyage.LeTempsDuVoyage.repositories.VillesRepositoryInterface;
+import com.letempsduvoyage.LeTempsDuVoyage.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +16,30 @@ public class MainWebController {
 
     @Autowired
     private VillesRepositoryInterface villesRepositoryInterface;
-    @PostMapping("/recuperationVille")
-    public String recuperationVille(@RequestBody Villes ville) {
-        System.out.println(ville);
-        villesRepositoryInterface.save(ville);
+    @Autowired
+    private ContinentsRepositoryInterface continentsRepositoryInterface;
+    @Autowired
+    private RestaurantsRepositoryInterface restaurantsRepositoryInterface;
+    @Autowired
+   private SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
+    @Autowired
+    private TransportsRepositoryInterface transportsRepositoryInterface;
+
+
+
+    @PostMapping("/recuperationVilles")
+    public String recuperationVilles(@RequestBody Villes villes) {
+        System.out.println(villes);
+        villesRepositoryInterface.save(villes);
         return "OK";
     }
 
-
+    @PostMapping("/recuperationContinents")
+    public String recuperationContinents(@RequestBody Continents continents) {
+        System.out.println(continents);
+        continentsRepositoryInterface.save(continents);
+        return "OK";
+    }
 
     @GetMapping("/ajoutVilleEnBase")
     public String ajoutVilleEnBase() {
@@ -49,8 +62,6 @@ public class MainWebController {
         List<Villes> villes = villesRepositoryInterface.findAll();
         return villes;
     }
-    @Autowired
-    private ContinentsRepositoryInterface continentsRepositoryInterface;
     @GetMapping("/ajoutContinentsEnBase")
     public String ajoutContinentsEnBase() {
 
@@ -78,8 +89,7 @@ public class MainWebController {
 
 
     //..........Restaurants.........//
-    @Autowired
-    private RestaurantsRepositoryInterface restaurantsRepositoryInterface;
+
 
     @GetMapping("/ajoutRestaurantsEnBase")
     public String ajoutRestaurantsEnBase() {
@@ -108,8 +118,7 @@ public class MainWebController {
         List<Restaurants> restos = restaurantsRepositoryInterface.findAll();
         return restos;
     }
-@Autowired
-    SitesTouristiquesRepositoryInterface sitesTouristiquesRepositoryInterface;
+
     @PostMapping("/recuperationSitesTouristiques")
     public String recuperationSitesTouristiques(@RequestBody SitesTouristiques tourisme) {
         System.out.println(tourisme);
@@ -123,13 +132,22 @@ public class MainWebController {
     @PostMapping("/recuperationMultiRestaurants")
     public String recuperationMultiRestaurants(@RequestBody Restaurants restaurant) {
         System.out.println(restaurant);
-        Villes ville= villesRepositoryInterface.findByNom(restaurant.getNomVille());
-        ville.ajouterRestaurants(restaurant);
-        System.out.println(ville);
-        villesRepositoryInterface.save(ville);
+        Villes villes= villesRepositoryInterface.findByNom(restaurant.getNomVilles());
+        villes.ajouterRestaurants(restaurant);
+        System.out.println(villes);
+        villesRepositoryInterface.save(villes);
         return "OK";
     }
 
+    @PostMapping("/recuperationMultiVilles")
+    public String recuperationMultiVilles(@RequestBody Villes villes) {
+        System.out.println(villes);
+        Continents continents= continentsRepositoryInterface.findByNom(villes.getNomContinents());
+        continents.ajouterVilles(villes);
+        System.out.println(villes);
+        continentsRepositoryInterface.save(continents);
+        return "OK";
+    }
 
 
 }

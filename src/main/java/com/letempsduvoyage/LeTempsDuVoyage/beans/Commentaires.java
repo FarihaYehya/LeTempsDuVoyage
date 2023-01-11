@@ -18,6 +18,9 @@ public class Commentaires {
     private int idtransports;
     private int idsitesTouristiques;
     private int idrestaurants;
+
+
+
     //constructeurs
 
     public Commentaires() {

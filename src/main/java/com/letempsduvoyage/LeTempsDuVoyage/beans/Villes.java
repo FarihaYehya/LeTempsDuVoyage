@@ -12,9 +12,10 @@ public class Villes {
 
     //Attributs
 
-    private int id;
+    private int idVilles;
     private String nom;
 
+    private String nomContinents;
     @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Restaurants> restaurants = new ArrayList<>();
 
@@ -33,6 +34,9 @@ public class Villes {
         this.nom = nom;
     }
 
+
+
+
     public Villes(String nom, List<Restaurants> restaurants) {
         this.nom = nom;
         this.restaurants = restaurants;
@@ -40,12 +44,13 @@ public class Villes {
 
     //Getter/setter
 
-    public int getId() {
-        return id;
+
+    public int getIdVilles() {
+        return idVilles;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVilles(int idVilles) {
+        this.idVilles = idVilles;
     }
 
     public String getNom() {
@@ -63,15 +68,27 @@ public class Villes {
     public void setRestaurants(List<Restaurants> restaurants) {
         this.restaurants = restaurants;
     }
+
+    public String getNomContinents() {
+        return nomContinents;
+    }
+
+    public void setNomContinents(String nomContinents) {
+        this.nomContinents = nomContinents;
+    }
+
 //ToString
 
 
     @Override
     public String toString() {
         return "Villes{" +
-                "id=" + id +
+                "id=" + idVilles +
                 ", nom='" + nom + '\'' +
                 ", restaurants=" + restaurants +
                 '}';
+    }
+
+    public void add(Villes villes) {
     }
 }
