@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css2/moncss.css">
 
+
     <title>Le temps du voyage</title>
     <link rel="icon" type="image/png" href="img09/avion2.png" />
 
@@ -26,25 +27,25 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="Afrique" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Afrique
                         </a>
                         
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="afrique.html">Kenya</a></li>
+                            <li><a class="dropdown-item" id="Kenya" href="afrique.html">kenya pas le bon</a></li>
                             <li><a class="dropdown-item" href="#">Autres Villes</a></li>
                 
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="Amérique"  role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Amérique
+                            Amérique pas bon
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="amerique.html">Copacabana</a></li>
+                            <li><a class="dropdown-item" id="Copacabana" href="amerique.html">Copacabana pas le bon</a></li>
                             <li><a class="dropdown-item" href="#">Autres Villes</a></li>
                             <li>
             
@@ -52,12 +53,12 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="Asie" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Asie
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="asie.html">Dubaï</a></li>
+                            <li><a class="dropdown-item" id="Dubaï" href="asie.html">Dubaï pas le bon</a></li>
                             <li><a class="dropdown-item" href="#">Autres Villes</a></li>
                             <li>
                         
@@ -65,12 +66,12 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="Europe" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Europe
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="europe.html">Istrie</a></li>
+                            <li><a class="dropdown-item" id="Istrie" href="europe.html">Istrie pas le bon</a></li>
                             <li><a class="dropdown-item" href="#">Autres Villes</a></li>
                             <li>
                         </ul>
@@ -87,6 +88,12 @@
 
     <div >
         <p class="alert alert-primary" id="premierebox"> Prêt pour partir à l'aventure ?</p>
+    </div>
+
+    <div>
+        <p><a id="Commentaires" href="ajoutCommentaires.html">
+            Commentaires doivent apparaitre ici
+    </a></p>
     </div>
     
     <div class="row justify-content-center">
@@ -176,13 +183,14 @@
 
 
 
-    
+    <script src='http://code.jquery.com/jquery.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
+    <script src="js.TempsDuVoyage/index.js"></script>
 </body>
 
 </html>
