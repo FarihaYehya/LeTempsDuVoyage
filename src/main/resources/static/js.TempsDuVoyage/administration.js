@@ -34,7 +34,7 @@ $("#boutonRestoAVille").click(() => {
 //Ajouter des transports à une ville //
 $("#boutonTransportAVille").click(() => {
 
-  let valeurs = { typeTransports: $("#inputTypeTransport").val(), nomVilles: $("#inputNomVille").val() };
+  let valeurs = { typeTransports: $("#inputTypeTransport").val(), nomVille: $("#inputNomVille").val() };
   console.log(valeurs);
   $.ajax({
     type: "POST",
@@ -152,7 +152,7 @@ $.ajax({
 });
 
   //Afficher un Continent//
-/*$.ajax({
+$.ajax({
   type: "GET",
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllContinents",
@@ -163,7 +163,7 @@ $.ajax({
     $("#Asie").html(resultat[2].nom.replace(/[""]+/g, ''));
     $("#Europe").html(resultat[3].nom.replace(/[""]+/g, ''));
   }
-  });*/
+  });
 
   //Afficher un restaurant//
 
@@ -177,3 +177,6 @@ $.ajax({
     $("#RestaurantCopacabana").html(resultat[1].nom.replace(/[""]+/g, ''));
   }
   });*/
+
+
+
