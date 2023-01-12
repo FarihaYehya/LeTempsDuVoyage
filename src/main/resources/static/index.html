@@ -13,7 +13,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img09/logoLetempsDuVoyage.png" width="100%" height="50rem" alt="..."></a>
+            <a class="navbar-brand" href="#"><img src="img09/logoLetempsDuVoyage.png" width="100%" height="50rem"
+                    alt="..."></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -127,27 +128,17 @@
         <div class="message">
             <div class="content">
                 <h2>Laissez-nous un commentaire !</h2>
-                <p> Vous avez une question sur un article ? Un petit commentaire à laisser ? N'hésitez pas ! On vous
-                    répondra dès que possible ! </p>
+                <p> Vous avez un commentaire à laisser ? N'hésitez pas ! <br>On vous
+                    répondra dès que possible ! <br><b>Cliquez ici pour laisser un commentaire sur un sujet précis :</b>
+                </p>
             </div>
-        </div>
-        <div>
-            <form class="formcontact" action="/ma-page-de-traitement" method="post">
-                <div>
-                    <label for="name">Nom:</label>
-                    <input type="text" id="name" name="user_name">
-                </div>
-                <div>
-                    <label for="mail">e-mail&nbsp;:</label>
-                    <input type="email" id="mail" name="user_mail">
-                </div>
-                <div>
-                    <label for="msg">Commentaire:</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                </div>
-                <div><button id="boutonEnvoyer">Envoyer</button><br></div>
-            </form>
-
+            <div>
+                <form class="formcontact" action="/ma-page-de-traitement" method="post">
+                    <div><a href="localhost:8080/commentairesRestaurants.html" target="_blank"><button id="boutonEnvoyer">Commentaire Restaurants</button></a></div>
+                    <div><a href="localhost:8080/commentairesSitesTouristiques.html" target="_blank"><button id="boutonEnvoyer">Commentaire Sites Touristiques</button></a></div>
+                    <div><a href="localhost:8080/commentairesVilles.html" target="_blank"><button id="boutonEnvoyer">Commentaire Villes</button></a></div>
+                </form>
+            </div>
         </div>
 
         <footer class="text-center text-white" style="background-color: #45637d;">

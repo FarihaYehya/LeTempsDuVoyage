@@ -129,31 +129,27 @@ body {
 .content>p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 17;
+    
 
 }
 
 
-
-.formcontact {
-    /* Uniquement centrer le formulaire sur la page */
-    margin: 3 auto;
-    width: 450px;
-    /* Encadré pour voir les limites du formulaire */
-    padding: 1.5rem;
-    padding-bottom: 1.5rem;
-    border: 2px solid rgb(172, 101, 101);
-    border-radius: 1em;
+.message div{
+text-align: center;
+padding-top: 10;
+padding-bottom: 10;
+padding-right: 10;
+padding-left: 10;
 }
 
-.formcontact div+div {
-    margin-top: 2em;
-}
+
+
 
 label {
     /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
     display: inline-block;
     width: 90px;
-    text-align: right;
+    text-align: center;
     padding-left: 0;
 }
 
@@ -195,12 +191,13 @@ textarea {
 
 .button {
     /* Pour placer le bouton à la même position que les champs texte */
-    padding-left: 90px;
+    padding: auto;
+
     /* même taille que les étiquettes */
 }
 
 button {
     /* Cette marge supplémentaire représente grosso modo le même espace que celui
        entre les étiquettes et les champs texte */
-    margin-left: .5em;
+    margin: auto;
 }
