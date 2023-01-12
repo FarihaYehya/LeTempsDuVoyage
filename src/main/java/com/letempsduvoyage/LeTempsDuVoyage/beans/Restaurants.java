@@ -97,31 +97,33 @@ public class Restaurants {
         return nomVilles;
     }
 
-        public void setNomVilles (String nomVilles){
-            this.nomVilles = nomVilles;
-        }
-
-        public List<Commentaires> getCommentaires () {
-            return commentaires;
-        }
-
-        public void setCommentaires (List < Commentaires > commentaires) {
-            this.commentaires = commentaires;
-        }
-
-        //ToString
-
-
-        @Override
-        public String toString () {
-            return "Restaurants{" +
-                    "id=" + idRestaurants +
-                    ", nom='" + nom + '\'' +
-                    ", type='" + type + '\'' +
-                    ", prixLePlusBas=" + prixLePlusBas +
-                    ", prixLePlusHaut=" + prixLePlusHaut +
-                    ", adresse='" + adresse + '\'' +
-                    '}';
-        }
+    public void setNomVilles(String nomVilles) {
+        this.nomVilles = nomVilles;
     }
+
+    public List<Commentaires> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaires> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    //ToString
+
+
+    @Override
+    public String toString() {
+        return "Restaurants{" +
+                "idRestaurants=" + idRestaurants +
+                ", nom='" + nom + '\'' +
+                ", type='" + type + '\'' +
+                ", prixLePlusBas=" + prixLePlusBas +
+                ", prixLePlusHaut=" + prixLePlusHaut +
+                ", adresse='" + adresse + '\'' +
+                ", nomVilles='" + nomVilles + '\'' +
+                ", commentaires=" + commentaires +
+                '}';
+    }
+}
 

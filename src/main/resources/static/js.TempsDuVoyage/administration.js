@@ -18,7 +18,7 @@ $("#boutonVille").click(() => {
 //Ajouter des restaurants à une ville //
 $("#boutonRestoAVille").click(() => {
 
-  let valeurs = { nom: $("#inputNomResto").val(), type: $("#inputType").val(), adresse: $("#inputAdresse").val(), prixLePlusBas: $("#inputPrixBas").val(), prixLePlusHaut: $("#inputPrixHaut").val(), nomVille: $("#inputNomVille").val() };
+  let valeurs = { nom: $("#inputNomResto").val(), type: $("#inputType").val(), adresse: $("#inputAdresse").val(), prixLePlusBas: $("#inputPrixBas").val(), prixLePlusHaut: $("#inputPrixHaut").val(), nomVilles: $("#inputNomVille").val() };
   console.log(valeurs);
   $.ajax({
     type: "POST",
@@ -34,7 +34,7 @@ $("#boutonRestoAVille").click(() => {
 //Ajouter des transports à une ville //
 $("#boutonTransportAVille").click(() => {
 
-  let valeurs = { typeTransports: $("#inputTypeTransport").val(), nomVille: $("#inputNomVille").val() };
+  let valeurs = { typeTransports: $("#inputTypeTransport").val(), nomVilles: $("#inputNomVille").val() };
   console.log(valeurs);
   $.ajax({
     type: "POST",
@@ -152,7 +152,7 @@ $.ajax({
 });
 
   //Afficher un Continent//
-$.ajax({
+/*$.ajax({
   type: "GET",
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllContinents",
@@ -163,7 +163,7 @@ $.ajax({
     $("#Asie").html(resultat[2].nom.replace(/[""]+/g, ''));
     $("#Europe").html(resultat[3].nom.replace(/[""]+/g, ''));
   }
-  });
+  });*/
 
   //Afficher un restaurant//
 
