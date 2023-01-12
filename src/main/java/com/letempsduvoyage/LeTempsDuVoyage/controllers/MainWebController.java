@@ -204,6 +204,26 @@ public class MainWebController {
         return "OK";
     }
 
+    //....Afficher les commentaires RESTAURANTS....//
+    @GetMapping("/getAllCommentairesRestaurants")
+    public List<Commentaires> getAllCommentairesRestaurants() {
+        List<Commentaires> commentaires = commentairesRepositoryInterface.findAll();
+        return commentaires;
+    }
+
+    //....Afficher les commentaires SITES TOURISTIQUES....//
+    @GetMapping("/getAllCommentairesSitesTouristiques")
+    public List<Commentaires> getAllCommentairesSitesTouristiques() {
+        List<Commentaires> commentaires = commentairesRepositoryInterface.findAll();
+        return commentaires;
+    }
+
+    //....Afficher les commentaires VILLES....//
+    @GetMapping("/getAllCommentairesVilles")
+    public List<Commentaires> getAllCommentairesVilles() {
+        List<Commentaires> commentaires = commentairesRepositoryInterface.findAll();
+        return commentaires;
+    }
 
 }
 

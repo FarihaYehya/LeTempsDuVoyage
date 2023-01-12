@@ -120,7 +120,7 @@ $.ajax({
 // Ajout Villes dans Commentaires
 $("#boutonajoutCommentairesAVilles").click(() =>{
 
-  let valeurs = { commentaires: $("#inputCommentaires").val(), nomVilles: $("#inputVillesDansCommentaires").val()};
+  let valeurs = { commentaires: $("#inputCommentaires").val(), nomVilles: $("#inputVillesDansCommentaires").val(), nomPersonnes: $("#inputNomPersonnes").val()};
 console.log(valeurs);
 $.ajax({
   type: "POST",
@@ -165,18 +165,100 @@ $.ajax({
   }
   });
 
-  //Afficher un restaurant//
-
-/*$.ajax({
+//Afficher un commentaire et son nom pour RESTAURANT//
+$.ajax({
   type: "GET",
   headers: { "Content-Type": "application/json" },
-  url: "http://localhost:8080/API/getAllRestaurants",
+  url: "http://localhost:8080/API/getAllCommentairesRestaurants",
   success: function (resultat) {
+    alert("L'API m'a retourné : " + resultat);
     console.log("L'API m'a retourné : "+resultat);
-    $("#RestaurantKenya").html(resultat[0].nom.replace(/[""]+/g, ''));
-    $("#RestaurantCopacabana").html(resultat[1].nom.replace(/[""]+/g, ''));
-  }
-  });*/
+    for(let i = 0; i<resultat.length ;i++) {
+    if (resultat[i].nomRestaurants != null){
+               divNomRestaurants = document.createElement("div");
+               divNomRestaurants.id = "NomRestaurants" + i;
+               divNomRestaurants.innerHTML = resultat[i].nomPersonnes;
+
+                divObjetRestaurants = document.createElement("div");
+                divObjetRestaurants.id = "ObjetRestaurants" + i;
+                divObjetRestaurants.innerHTML = resultat[i].nomRestaurants;
+
+
+               divComRestaurants = document.createElement("div");
+               divComRestaurants.id = "CommentaireRestaurants" + i;
+               divComRestaurants.innerHTML = resultat[i].commentaires;
+
+               document.getElementById("CommentairesRestaurants").appendChild(divNomRestaurants);
+               document.getElementById("CommentairesRestaurants").appendChild(divObjetRestaurants);
+               document.getElementById("CommentairesRestaurants").appendChild(divComRestaurants);
+               }
+           }
+         }
+});
+
+//Afficher un commentaire et son nom pour SITES TOURISTIQUES//
+$.ajax({
+  type: "GET",
+  headers: { "Content-Type": "application/json" },
+  url: "http://localhost:8080/API/getAllCommentairesSitesTouristiques",
+  success: function (resultat) {
+    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : "+resultat);
+    for(let i = 0; i<resultat.length ;i++) {
+    if (resultat[i].nomSitesTouristiques != null){
+               divNomSitesTouristiques = document.createElement("div");
+               divNomSitesTouristiques.id = "NomSitesTouristiques" + i;
+               divNomSitesTouristiques.innerHTML = resultat[i].nomPersonnes;
+
+                divObjetSiteTouristiques = document.createElement("div");
+                divObjetSiteTouristiques.id = "ObjetSitesTouristiques" + i;
+                divObjetSiteTouristiques.innerHTML = resultat[i].nomSitesTouristiques;
+
+
+               divComSitesTouristiques = document.createElement("div");
+               divComSitesTouristiques.id = "CommentaireSitesTouristiques" + i;
+               divComSitesTouristiques.innerHTML = resultat[i].commentaires;
+
+               document.getElementById("CommentairesSitesTouristiques").appendChild(divNomSitesTouristiques);
+               document.getElementById("CommentairesSitesTouristiques").appendChild(divObjetSiteTouristiques);
+               document.getElementById("CommentairesSitesTouristiques").appendChild(divComSitesTouristiques);
+               }
+           }
+         }
+});
+
+//Afficher un commentaire et son nom pour VILLES//
+$.ajax({
+  type: "GET",
+  headers: { "Content-Type": "application/json" },
+  url: "http://localhost:8080/API/getAllCommentairesVilles",
+  success: function (resultat) {
+    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : "+resultat);
+    for(let i = 0; i<resultat.length ;i++) {
+    if (resultat[i].nomVilles != null){
+               divNomVilles = document.createElement("div");
+               divNomVilles.id = "NomVilles" + i;
+               divNomVilles.innerHTML = resultat[i].nomPersonnes;
+
+                divObjetVilles = document.createElement("div");
+                divObjetVilles.id = "ObjetVilles" + i;
+                divObjetVilles.innerHTML = resultat[i].nomVilles;
+
+
+               divComVilles = document.createElement("div");
+               divComVilles.id = "CommentaireVilles" + i;
+               divComVilles.innerHTML = resultat[i].commentaires;
+
+               document.getElementById("CommentairesVilles").appendChild(divNomVilles);
+               document.getElementById("CommentairesVilles").appendChild(divObjetVilles);
+               document.getElementById("CommentairesVilles").appendChild(divComVilles);
+               }
+           }
+         }
+});
+
+
 
 
 
