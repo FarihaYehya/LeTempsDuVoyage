@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css2/contact.css">
+
+    <title>Le temps du voyage</title>
+    <link rel="icon" type="image/png" href="img09/avion2.png" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img09/logoLetempsDuVoyage.png" width="100%" height="50rem" alt="..."></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Afrique
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="afrique.html">Kenya</a></li>
+                            <li><a class="dropdown-item" href="#">Autres Villes</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Amérique
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="amerique.html">Copacabana</a></li>
+                            <li><a class="dropdown-item" href="#">Autres Villes</a></li>
+                            <li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Asie
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="asie.html">Dubaï</a></li>
+                            <li><a class="dropdown-item" href="#">Autres Villes</a></li>
+                            <li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Europe
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="europe.html">Istrie</a></li>
+                            <li><a class="dropdown-item" href="#">Autres Villes</a></li>
+                            <li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="carousel-itemactive">
+        <img src="img09/backcontact.webp" width="100%" height="87%" alt="...">
+        <div class="carousel-caption">
+            <h1>Nous contacter</h1>
+        </div>
+    </div>
+    <br>
+    <div class="message">
+        <div class="content">
+            <h2>Vous souhaitez nous envoyer un message ?</h2>
+            <p> Si tu as des questions, des suggestions ou que tu souhaites mettre en place un partenariat avec notre
+                blog voyage, n'hésite pas à nous envoyer un petit message.
+                Nous essayerons de te répondre rapidement dans la mesure du possible. </p>
+        </div>
+    </div>
+
+    <div>
+        <form class="formcontact" action="/ma-page-de-traitement" method="post">
+            <div>
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="user_name">
+            </div>
+            <div>
+                <label for="mail">e-mail&nbsp;:</label>
+                <input type="email" id="mail" name="user_mail">
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </div>
+            <div><button id="boutonEnvoyer">Envoyer</button><br></div>
+        </form>
+        
+    </div>
+
+    <br>
+    <footer class="text-center text-white" style="background-color: #45637d;">
+        <div>
+            <a href="contact.html" target="_blank">
+                <p><b>Contact</b></p>
+            </a>
+            <p>Retrouvez toutes nos aventures sur les réseaux sociaux !</p>
+        </div>
+        <div class="row row-cols-2 row-cols-md-1 g-0">
+            <div class="logo">
+                <p><b>LeTempsDuVoyage</b>
+                    <a href="https://www.facebook.com" target="_blank"><img src="img09/facebook logo.png" width="25"
+                            height="25"></a>
+                </p>
+            </div>
+            <div class="logo"><a href="https://www.instagram.com" target="_blank"><img class="logo"
+                        src="img09/instagram logo.png" width="25" height="25"></a></p>
+            </div>
+        </div>
+       
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">Le Temps du Voyage</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
