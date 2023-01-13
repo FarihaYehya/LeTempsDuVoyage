@@ -10,7 +10,7 @@ $("#boutonVille").click(() => {
     url: "http://localhost:8080/API/recuperationVille",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -26,7 +26,7 @@ $("#boutonRestoAVille").click(() => {
     url: "http://localhost:8080/API/recuperationMultiRestaurants",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -42,7 +42,7 @@ $("#boutonTransportAVille").click(() => {
     url: "http://localhost:8080/API/recuperationMultiTransports",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -58,7 +58,7 @@ $("#boutonSitesTouristiquesAVilles").click(() => {
     url: "http://localhost:8080/API/recuperationMultiSitesTouristiques",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -74,7 +74,7 @@ $("#boutonCommentairesARestaurants").click(() => {
     url: "http://localhost:8080/API/recuperationMultiCommentairesRestaurants",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -91,7 +91,7 @@ $("#boutonCommentairesASitesTouristiques").click(() => {
     url: "http://localhost:8080/API/recuperationMultiCommentairesSitesTouristiques",
     data: JSON.stringify(valeurs),
     success: function (resultat) {
-      alert("L'API m'a retourné : " + resultat);
+      console.log("L'API m'a retourné : " + resultat);
     }
   });
 });
@@ -142,7 +142,7 @@ $.ajax({
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllVilles",
   success: function (resultat) {
-    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     console.log("L'API m'a retourné : "+resultat);
     $("#Kenya").html(resultat[0].nom.replace(/[""]+/g, ''));
     $("#Copacabana").html(resultat[1].nom.replace(/[""]+/g, ''));
@@ -171,26 +171,30 @@ $.ajax({
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllCommentairesRestaurants",
   success: function (resultat) {
-    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     console.log("L'API m'a retourné : "+resultat);
     for(let i = 0; i<resultat.length ;i++) {
     if (resultat[i].nomRestaurants != null){
                divNomRestaurants = document.createElement("div");
                divNomRestaurants.id = "NomRestaurants" + i;
-               divNomRestaurants.innerHTML = resultat[i].nomPersonnes;
+               divNomRestaurants.innerHTML = "Nom d'utilisateur : " + resultat[i].nomPersonnes;
 
                 divObjetRestaurants = document.createElement("div");
                 divObjetRestaurants.id = "ObjetRestaurants" + i;
-                divObjetRestaurants.innerHTML = resultat[i].nomRestaurants;
+                divObjetRestaurants.innerHTML = "Nom du restaurant : " + resultat[i].nomRestaurants;
 
 
                divComRestaurants = document.createElement("div");
                divComRestaurants.id = "CommentaireRestaurants" + i;
-               divComRestaurants.innerHTML = resultat[i].commentaires;
+               divComRestaurants.innerHTML = "Commentaire : " + resultat[i].commentaires;
+
+               let br = document.createElement("br");
 
                document.getElementById("CommentairesRestaurants").appendChild(divNomRestaurants);
                document.getElementById("CommentairesRestaurants").appendChild(divObjetRestaurants);
                document.getElementById("CommentairesRestaurants").appendChild(divComRestaurants);
+               document.getElementById("CommentairesRestaurants").appendChild(br);
+
                }
            }
          }
@@ -202,26 +206,30 @@ $.ajax({
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllCommentairesSitesTouristiques",
   success: function (resultat) {
-    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     console.log("L'API m'a retourné : "+resultat);
     for(let i = 0; i<resultat.length ;i++) {
     if (resultat[i].nomSitesTouristiques != null){
                divNomSitesTouristiques = document.createElement("div");
                divNomSitesTouristiques.id = "NomSitesTouristiques" + i;
-               divNomSitesTouristiques.innerHTML = resultat[i].nomPersonnes;
+               divNomSitesTouristiques.innerHTML = "Nom d'utilisateur : "+ resultat[i].nomPersonnes;
 
                 divObjetSiteTouristiques = document.createElement("div");
                 divObjetSiteTouristiques.id = "ObjetSitesTouristiques" + i;
-                divObjetSiteTouristiques.innerHTML = resultat[i].nomSitesTouristiques;
+                divObjetSiteTouristiques.innerHTML = "Nom du site touristique : " + resultat[i].nomSitesTouristiques;
 
 
                divComSitesTouristiques = document.createElement("div");
                divComSitesTouristiques.id = "CommentaireSitesTouristiques" + i;
-               divComSitesTouristiques.innerHTML = resultat[i].commentaires;
+               divComSitesTouristiques.innerHTML = "Commentaire : " + resultat[i].commentaires;
+
+               let br = document.createElement("br");
 
                document.getElementById("CommentairesSitesTouristiques").appendChild(divNomSitesTouristiques);
                document.getElementById("CommentairesSitesTouristiques").appendChild(divObjetSiteTouristiques);
                document.getElementById("CommentairesSitesTouristiques").appendChild(divComSitesTouristiques);
+               document.getElementById("CommentairesSitesTouristiques").appendChild(br);
+
                }
            }
          }
@@ -233,26 +241,29 @@ $.ajax({
   headers: { "Content-Type": "application/json" },
   url: "http://localhost:8080/API/getAllCommentairesVilles",
   success: function (resultat) {
-    alert("L'API m'a retourné : " + resultat);
+    console.log("L'API m'a retourné : " + resultat);
     console.log("L'API m'a retourné : "+resultat);
     for(let i = 0; i<resultat.length ;i++) {
     if (resultat[i].nomVilles != null){
                divNomVilles = document.createElement("div");
                divNomVilles.id = "NomVilles" + i;
-               divNomVilles.innerHTML = resultat[i].nomPersonnes;
+               divNomVilles.innerHTML = "Nom d'utilisateur : " + resultat[i].nomPersonnes;
 
                 divObjetVilles = document.createElement("div");
                 divObjetVilles.id = "ObjetVilles" + i;
-                divObjetVilles.innerHTML = resultat[i].nomVilles;
+                divObjetVilles.innerHTML = "Nom de la ville/pays : " + resultat[i].nomVilles;
 
 
                divComVilles = document.createElement("div");
                divComVilles.id = "CommentaireVilles" + i;
-               divComVilles.innerHTML = resultat[i].commentaires;
+               divComVilles.innerHTML = "Commentaire : "+resultat[i].commentaires;
+
+               let br = document.createElement("br");
 
                document.getElementById("CommentairesVilles").appendChild(divNomVilles);
                document.getElementById("CommentairesVilles").appendChild(divObjetVilles);
                document.getElementById("CommentairesVilles").appendChild(divComVilles);
+               document.getElementById("CommentairesVilles").appendChild(br);
                }
            }
          }
